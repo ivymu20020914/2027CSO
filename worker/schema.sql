@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS forum_task (id TEXT PRIMARY KEY, data TEXT NOT NULL CHECK(json_valid(data)), updated_at TEXT NOT NULL DEFAULT '', updated_by TEXT);
+CREATE TABLE IF NOT EXISTS forum_decision (id TEXT PRIMARY KEY, data TEXT NOT NULL CHECK(json_valid(data)), updated_at TEXT NOT NULL DEFAULT '', updated_by TEXT);
+CREATE TABLE IF NOT EXISTS forum_notice (id TEXT PRIMARY KEY, data TEXT NOT NULL CHECK(json_valid(data)), updated_at TEXT NOT NULL DEFAULT '', updated_by TEXT);
+CREATE TABLE IF NOT EXISTS forum_option (category TEXT NOT NULL, value TEXT NOT NULL, code TEXT UNIQUE, sort_order INTEGER PRIMARY KEY AUTOINCREMENT, UNIQUE(category, value));
+CREATE TABLE IF NOT EXISTS forum_user (id TEXT PRIMARY KEY, username TEXT NOT NULL UNIQUE, name TEXT NOT NULL, role TEXT NOT NULL CHECK(role IN ('admin','member')), password_hash TEXT NOT NULL, salt TEXT NOT NULL, created_at INTEGER NOT NULL);
+CREATE TABLE IF NOT EXISTS forum_session (hash TEXT PRIMARY KEY, user_id TEXT NOT NULL REFERENCES forum_user(id), expires_at INTEGER NOT NULL);
+CREATE INDEX IF NOT EXISTS forum_session_expiry ON forum_session(expires_at);
+CREATE TABLE IF NOT EXISTS forum_invite (hash TEXT PRIMARY KEY, role TEXT NOT NULL CHECK(role IN ('admin','member')), expires_at INTEGER NOT NULL, used_by TEXT, created_by TEXT);
+CREATE TABLE IF NOT EXISTS forum_rate_limit (key TEXT PRIMARY KEY, count INTEGER NOT NULL, expires_at INTEGER NOT NULL);
+CREATE TABLE IF NOT EXISTS forum_audit (id INTEGER PRIMARY KEY AUTOINCREMENT, entity TEXT NOT NULL, entity_id TEXT NOT NULL, action TEXT NOT NULL, user_id TEXT NOT NULL, created_at TEXT NOT NULL, data TEXT NOT NULL);

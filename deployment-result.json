@@ -1,0 +1,74 @@
+{
+  "project": "gxc1",
+  "deployed": true,
+  "checkedAt": "2026-11-13T08:19:49.847Z",
+  "pages": [
+    {
+      "pathname": "/",
+      "status": 200
+    },
+    {
+      "pathname": "/tasks",
+      "status": 200
+    },
+    {
+      "pathname": "/notices",
+      "status": 200
+    },
+    {
+      "pathname": "/decisions",
+      "status": 200
+    },
+    {
+      "pathname": "/team",
+      "status": 200
+    },
+    {
+      "pathname": "/modules/03",
+      "status": 200
+    }
+  ],
+  "api": [
+    {
+      "pathname": "/api/forum-tasks",
+      "total": 322,
+      "create": true,
+      "edit": true,
+      "status": true,
+      "crossDevice": true,
+      "delete": true,
+      "guestIsolation": true
+    },
+    {
+      "pathname": "/api/forum-notices",
+      "total": 59,
+      "create": true,
+      "edit": true,
+      "status": true,
+      "crossDevice": true,
+      "delete": true,
+      "guestIsolation": true
+    },
+    {
+      "pathname": "/api/forum-decisions",
+      "total": 25,
+      "create": true,
+      "edit": true,
+      "status": true,
+      "crossDevice": true,
+      "delete": true,
+      "guestIsolation": true
+    }
+  ],
+  "authenticationConnected": true,
+  "liveCollaborationConnected": true,
+  "fixedDomain": "https://gxc1.code-me.app",
+  "fixedDomainVerified": true,
+  "assetsVerified": 2,
+  "sharedOptionsVerified": true,
+  "mode": "invited-team-collaboration-with-public-archive",
+  "fixedDomainStatus": 200,
+  "fixedDomainHomeStatus": 200,
+  "fixedDomainAssetsVerified": 2,
+  "fixedDomainAuthenticationVerified": true
+}

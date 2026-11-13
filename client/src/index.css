@@ -1,0 +1,115 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "./tailwind-theme.css";
+@import "./typography.css";
+
+@config "../../tailwind.config.ts";
+
+/* ===== 企业蓝图报告风 · 全局工具类 ===== */
+@layer components {
+  /* 报告卡片基座：白底零圆角 + 顶部 3px 深蓝强调边 + 轻阴影（核心视觉签名） */
+  .bp-card {
+    background-color: var(--card);
+    border-radius: 0;
+    border: 0 solid var(--border);
+    border-top-width: 3px;
+    border-top-color: var(--brand);
+    box-shadow: var(--shadow-md);
+  }
+
+  /* 编号 Section 微标签：11px 全大写加粗字距 */
+  .bp-label {
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--brand);
+  }
+
+  .bp-sublabel {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--muted-foreground);
+  }
+
+  /* KPI 微标签 9px */
+  .bp-kpi-label {
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+  }
+
+  /* 极细分隔线 0.5px */
+  .bp-hairline {
+    border-color: var(--border);
+  }
+  .bp-hairline-b {
+    border-bottom: 0.5px solid var(--border);
+  }
+  .bp-hairline-t {
+    border-top: 0.5px solid var(--border);
+  }
+  .bp-hairline-r {
+    border-right: 0.5px solid var(--border);
+  }
+}
+
+@layer utilities {
+  .tnum {
+    font-variant-numeric: tabular-nums;
+    font-family: var(--font-mono);
+  }
+  .font-display {
+    font-family: var(--font-sans);
+    letter-spacing: -0.02em;
+  }
+  .lucide {
+    stroke-width: 1.75;
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  .rise {
+    animation: rise 0.35s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .rise {
+      animation: none;
+    }
+  }
+}
+
+/* 蓝图滚动条：宽 6px，浅灰轨道，深蓝滑块 */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--brand) #f1f1f1;
+}
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+*::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--brand);
+  border-radius: 3px;
+}
+
+@layer base {
+  * { border-color: var(--border); }
+  html { color-scheme: light; }
+  body { margin: 0; background: var(--background); color: var(--foreground); font-family: var(--font-sans); }
+  button:not(:disabled), a { -webkit-tap-highlight-color: transparent; }
+  button:not(:disabled) { cursor: pointer; }
+}

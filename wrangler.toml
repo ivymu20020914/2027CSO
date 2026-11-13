@@ -1,0 +1,14 @@
+name = "gxc1"
+main = "worker/index.ts"
+compatibility_date = "2026-11-13"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "gxc1-forum"
+database_id = "bad70627-a008-4d3b-9e0b-fdb9c39de8bf"
+
+[assets]
+directory = "dist/client"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+run_worker_first = true
